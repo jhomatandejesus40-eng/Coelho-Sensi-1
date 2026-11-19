@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coelho Sensi</title>
+    <style>
+        * {box-sizing:border-box;font-family:Arial,sans-serif;margin:0;padding:0}
+        body{background:#111;color:#fff;padding:16px}
+        .container{max-width:420px;margin:0 auto}
+        h1{text-align:center;color:#ff8800;margin-bottom:24px}
+        .card{background:#1f1f1f;padding:16px;border-radius:12px;margin-bottom:16px}
+        input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none}
+        button{width:100%;padding:14px;background:#ff8800;color:#000;font-weight:bold;border:none;border-radius:8px;margin-top:8px}
+        .aviso{color:#ff4444;font-size:12px;text-align:center;margin-top:12px}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐰 Coelho Sensi</h1>
+        <div class="card">
+            <h2>Gerador de Sensibilidade</h2>
+            <input type="number" id="dpi" placeholder="DPI">
+            <input type="number" id="geral" placeholder="Sensibilidade Geral">
+            <input type="number" id="mira2x" placeholder="Mira 2X">
+            <input type="number" id="mira4x" placeholder="Mira 4X">
+            <input type="number" id="awm" placeholder="AWM">
+            <button onclick="gerar()">GERAR VALORES</button>
+            <p id="resultado"></p>
+        </div>
+        <p class="aviso">Apenas referência para ajuste MANUAL no Free Fire! Não modifica o jogo!</p>
+    </div>
+    <script>
+        function gerar(){
+            const dpi=Number(document.getElementById("dpi").value)||400;
+            const geral=Math.round(dpi*0.75);
+            const mira2x=Math.round(dpi*0.65);
+            const mira4x=Math.round(dpi*0.55);
+            const awm=Math.round(dpi*0.45);
+            document.getElementById("resultado").innerHTML=
+            `<br>Geral:${geral}<br>Mira 2X:${mira2x}<br>Mira 4X:${mira4x}<br>AWM:${awm}`;
+        }
+    </script>
+</body>
+</html>
